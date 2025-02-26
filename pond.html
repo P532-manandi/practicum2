@@ -33,7 +33,7 @@
 
 <script>
     async function getDucks() {
-        let response = await fetch('http://localhost:8080/ducks');
+        let response = await fetch('https://lab6-n49u.onrender.com');
         return await response.json();
 
     }
@@ -44,7 +44,7 @@
             let card = document.createElement('div');
             card.className = 'card';
             let img = document.createElement('img');
-            img.src = 'http://localhost:8080/ducks/' + duck.id + '/image';
+            img.src = 'https://lab6-n49u.onrender.com' + duck.id + '/image';
             img.style.width = '100%';
             card.appendChild(img);
             let container = document.createElement('div');
