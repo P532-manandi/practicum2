@@ -58,7 +58,7 @@
         let duckId = document.getElementById('duckId').value;
         let image = document.getElementById('duckImage');
         let formData = new FormData();
-        formData.append('file', image.files[0]);
+        formData.append('image', image.files[0]);
         let request = {
             method: 'POST',
             body: formData
