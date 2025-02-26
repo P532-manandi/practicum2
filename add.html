@@ -15,7 +15,7 @@
 <button onclick="addTheDuck()">Add the duck</button>
 
 <script>
-    let host = 'https://lab6-n49u.onrender.com';
+    let host = 'http://localhost:8080';
 
     async function addTheDuck() {
         let message = "";
@@ -33,11 +33,15 @@
         };
 
         let response = await fetch(host + '/ducks', request);
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
             let result = await submitTheImage();
-            if (result.status === 200) {
+            if (result.status === 200 || result.status === 201) {
                 message = "Duck added successfully!";
-            } else {
+            }
+            else if (result.status === 409) {
+                message = "Error! Duck with this id already exists!";
+            }
+            else {
                 message = "Error! Data added successfully but adding duck image failed!";
                 console.log(result);
             }
