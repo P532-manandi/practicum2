@@ -34,18 +34,20 @@
 
         let response = await fetch(host + '/ducks', request);
         if (response.status === 200 || response.status === 201) {
+            message = "Duck data added successfully!";
             let result = await submitTheImage();
             if (result.status === 200 || result.status === 201) {
-                message = "Duck added successfully!";
-            }
-            else if (result.status === 409) {
-                message = "Error! Duck with this id already exists!";
+                message = "Duck added fully successfully!";
             }
             else {
                 message = "Error! Data added successfully but adding duck image failed!";
                 console.log(result);
             }
-        } else {
+        }
+        else if (response.status === 409) {
+            message = "Error! Duck with this id already exists!";
+        }
+        else {
             message = "Error adding duck!";
             console.log(response);
         }
