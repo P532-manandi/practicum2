@@ -69,7 +69,7 @@
         table.innerHTML = "";
 
         for (let duck of ducks) {
-          if (duckType && duck.type.toLowerCase() == duckType.toLowerCase()) {
+          if (duckType && duck.type.toLowerCase() === duckType.toLowerCase()) {
             let row = document.createElement("tr");
             let cell1 = document.createElement("td");
             let id = document.createTextNode(duck.id);
