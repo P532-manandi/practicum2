@@ -45,8 +45,8 @@
       let ducks = [];
 
       async function getDucks() {
-        // let response = await fetch('https://lab6-n49u.onrender.com/ducks');
-        let response = await fetch("http://localhost:8080/ducks");
+        let response = await fetch('https://lab6-n49u.onrender.com/ducks');
+        <!-- let response = await fetch("http://localhost:8080/ducks"); -->
         ducks = await response.json();
       }
 
