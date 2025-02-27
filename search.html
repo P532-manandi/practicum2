@@ -45,7 +45,8 @@
       let ducks = [];
 
       async function getDucks() {
-        let response = await fetch('https://lab6-n49u.onrender.com/ducks');
+        // let response = await fetch('https://lab6-n49u.onrender.com/ducks');
+        let response = await fetch("http://localhost:8080/ducks");
         ducks = await response.json();
       }
 
@@ -53,8 +54,14 @@
         if (ducks.length === 0) {
           await getDucks();
         }
-
-        let duckType = document.getElementById("type").value;
+        let duckTypes = {
+          MALLARD: "0",
+          REDHEAD: "1",
+          RUBBER_DUCK: "2",
+          DECOY_DUCK: "3",
+        };
+        let type = document.getElementById("type").value;
+        let duckType = duckTypes[type];
         let table = document.getElementById("result");
         table.innerHTML = "";
 
