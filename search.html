@@ -45,8 +45,8 @@
       let ducks = [];
 
       async function getDucks() {
-        let response = await fetch('https://lab6-n49u.onrender.com/ducks');
-        <!-- let response = await fetch("http://localhost:8080/ducks"); -->
+        let response = await fetch("https://lab6-n49u.onrender.com/ducks");
+        // <!-- let response = await fetch("http://localhost:8080/ducks"); -->
         ducks = await response.json();
       }
 
@@ -54,21 +54,22 @@
         if (ducks.length === 0) {
           await getDucks();
         }
-        let duckTypes = {
+        const duckTypes = {
           MALLARD: "0",
           REDHEAD: "1",
           RUBBER_DUCK: "2",
           DECOY_DUCK: "3",
         };
         let type = document.getElementById("type").value;
-        let duckType = duckTypes[type];
+        let duckType = duckTypes[type.toUpperCase()];
+
         let table = document.getElementById("result");
         console.log(duckType);
         console.log(ducks);
         table.innerHTML = "";
 
         for (let duck of ducks) {
-          if (!duckType || duck.type.toLowerCase() == duckType.toLowerCase()) {
+          if (duckType && duck.type.toLowerCase() == duckType.toLowerCase()) {
             let row = document.createElement("tr");
             let cell1 = document.createElement("td");
             let id = document.createTextNode(duck.id);
