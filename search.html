@@ -63,6 +63,8 @@
         let type = document.getElementById("type").value;
         let duckType = duckTypes[type];
         let table = document.getElementById("result");
+        console.log(duckType);
+        console.log(ducks);
         table.innerHTML = "";
 
         for (let duck of ducks) {
