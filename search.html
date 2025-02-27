@@ -55,13 +55,13 @@
           await getDucks();
         }
         const duckTypes = {
-          MALLARD: "0",
-          REDHEAD: "1",
-          RUBBER_DUCK: "2",
-          DECOY_DUCK: "3",
+          0: "MALLARD",
+          1: "REDHEAD",
+          2: "RUBBER_DUCK",
+          3: "DECOY_DUCK",
         };
         let type = document.getElementById("type").value;
-        let duckType = duckTypes[type.toUpperCase()];
+        let duckType = duckTypes[type];
 
         let table = document.getElementById("result");
         console.log(duckType);
